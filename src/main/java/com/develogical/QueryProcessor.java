@@ -67,7 +67,7 @@ public class QueryProcessor {
         }
 
         if(query.toLowerCase().contains("which of the following numbers is both a square and a cube:")){
-            System.out.println()
+            System.out.println();
         }
 
 
