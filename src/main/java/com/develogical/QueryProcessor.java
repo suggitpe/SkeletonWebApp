@@ -21,8 +21,6 @@ public class QueryProcessor {
     }
 
 
-
-
     public String process(String query) {
 
         System.out.println("Received query:" + query);
@@ -37,11 +35,18 @@ public class QueryProcessor {
             return "Mellow Yellow";
         }
 
-        if (query.contains("what is ") && query.contains(" plus ")) {
+        if (query.contains("What is ") && query.contains(" plus ")) {
             String[] arr = query.split(" ");
-            Integer foo = parseInt(arr[3]) + parseInt(arr[5]);
-            System.out.println(foo);
+            System.out.println(arr[2]);
+            Integer foo = parseInt(arr[2]) + parseInt(arr[4]);
+            System.out.println("foo = " + foo);
             return foo.toString();
+        }
+
+        if (query.contains("Which of the following numbers is the largest")) {
+            System.out.println("" + query.split(":"));
+            String numbers = query.split(":")[1];
+
         }
 
 
