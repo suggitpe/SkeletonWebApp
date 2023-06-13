@@ -43,11 +43,20 @@ public class QueryProcessor {
             return foo.toString();
         }
 
-        if (query.contains("Which of the following numbers is the largest")) {
-            String numbers = query.substring(0, query.length() - 1).split(":")[1];
-            System.out.println("--> " + numbers.split(" "));
-
+        if(query.toLowerCase().contains("which of the following numbers is the largest:")){
+            System.out.println("#######");
+            String[] numbers = query.substring(0, query.length()-1).split(":")[1].split(", ");
+            System.out.println("----> " + numbers);
+            String max = "0";
+            for(String number: numbers){
+                if(parseInt(max) < parseInt(number.trim())){
+                    max = number.trim();
+                }
+            }
+            System.out.println(numbers.length);
+            return max;
         }
+
 
 
         return "";
