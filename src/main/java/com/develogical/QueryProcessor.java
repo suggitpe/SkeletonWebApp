@@ -49,6 +49,12 @@ public class QueryProcessor {
             return foo.toString();
         }
 
+        if (query.contains("What is ") && query.contains(" to the power of ")) {
+            String[] arr = query.substring(0, query.length() - 1).split(" ");
+            System.out.println(arr[2]);
+            return powerOf(parseInt(arr[2]), parseInt(arr[7])).toString();
+        }
+
         if (query.contains("What is ") && query.contains(" multiplied by ")) {
             String[] arr = query.substring(0, query.length() - 1).split(" ");
             Integer foo = parseInt(arr[2]) * parseInt(arr[5]);
@@ -89,6 +95,16 @@ public class QueryProcessor {
         }
 
         return "";
+    }
+
+    private Long powerOf(int base, int exp) {
+        long result = 1;
+        System.out.print(base + " raised to the power " + exp + " is: ");
+        while (exp != 0) {
+            result *= base;
+            --exp;
+        }
+        return result;
     }
 
     boolean isPrime(int check) {

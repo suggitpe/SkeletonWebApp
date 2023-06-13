@@ -28,6 +28,9 @@ public class QueryProcessorTest {
         assertThat(queryProcessor.process("Which of the following numbers is both a square and a cube: 2744, 3969, 4021, 4154, 4096, 784, 1221?"), equalTo("4096"));
         assertThat(queryProcessor.process("What is 63 minus 39?"), equalTo("24"));
         assertThat(queryProcessor.process("Which of the following numbers are primes: 74, 59, 70, 61, 94?"), equalTo("59"));
+    assertThat(queryProcessor.process("What is 26 to the power of 37?"), equalTo("2817594890882383872"));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
 //    assertThat(queryProcessor.process(""), equalTo(""));
 //    assertThat(queryProcessor.process(""), equalTo(""));
 //    assertThat(queryProcessor.process(""), equalTo(""));
