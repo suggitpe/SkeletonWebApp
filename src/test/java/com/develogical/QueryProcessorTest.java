@@ -36,9 +36,4 @@ public class QueryProcessorTest {
 //    assertThat(queryProcessor.process(""), equalTo(""));
     }
 
-
-    private String squareRootOf(String foo) {
-        return
-    }
-
 }
