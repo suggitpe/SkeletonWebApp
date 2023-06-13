@@ -8,3 +8,4 @@ target
 .project
 .DS_Store
 notes
+dependency-reduced-pom.xml
