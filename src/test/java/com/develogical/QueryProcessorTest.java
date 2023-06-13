@@ -1,22 +1,44 @@
 package com.develogical;
 
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.MatcherAssert.assertThat;
-
 import org.junit.Test;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class QueryProcessorTest {
 
-  QueryProcessor queryProcessor = new QueryProcessor();
+    QueryProcessor queryProcessor = new QueryProcessor();
 
-  @Test
-  public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
-    assertThat(queryProcessor.process("test"), is(""));
-  }
 
-  @Test
-  public void knowsAboutShakespeare() throws Exception {
-    assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
-  }
+
+    @Test
+    public void returnsEmptyStringIfCannotProcessQuery() throws Exception {
+        assertThat(queryProcessor.process("test"), is(""));
+    }
+
+    @Test
+    public void knowsAboutShakespeare() throws Exception {
+        assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
+    }
+
+    @Test
+    public void allTheTests() throws Exception {
+        assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+//    assertThat(queryProcessor.process(""), equalTo(""));
+    }
+
+
+    private String squareRootOf(String foo) {
+        return
+    }
+
 }
