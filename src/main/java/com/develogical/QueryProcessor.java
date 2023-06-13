@@ -32,7 +32,7 @@ public class QueryProcessor {
         }
 
         if (query.toLowerCase().contains("your name")) {
-            return "Mellow Yellow";
+            return "Mellow Yellow The Second";
         }
 
         if (query.contains("What is ") && query.contains(" plus ")) {
