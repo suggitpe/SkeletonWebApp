@@ -66,13 +66,34 @@ public class QueryProcessor {
             return max;
         }
 
-        if(query.toLowerCase().contains("which of the following numbers is both a square and a cube:")){
-            System.out.println();
+        if(query.toLowerCase().contains("which of the following numbers is both a square and a cube")){
+            String[] numbers = query.substring(0, query.length()-1).split(":")[1].split(", ");
+            for(String number: numbers){
+                int check = parseInt(number.trim());
+                if(isSquareAndCube(check))
+                    return number.trim();
+            }
+            return "0";
         }
 
-
-
         return "";
+    }
+
+    boolean isSquareAndCube(int check){
+        return isSquare(check) && isCube(check);
+    }
+
+    boolean isSquare(int check){
+        int x = (int) Math.sqrt(check);
+        if(Math.pow(x,2) == check){
+            return true;
+        }
+        return false;
+    }
+
+    boolean isCube(int check){
+        int n = (int) Math.round(Math.pow(check, 1.0/3.0));
+        return Math.pow(n,3) == check;
     }
 
 
