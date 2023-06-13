@@ -47,7 +47,7 @@ public class QueryProcessor {
         if (query.contains("What is ") && query.contains(" multiplied by ")) {
             String[] arr = query.substring(0, query.length() - 1).split(" ");
 //            System.out.println(arr[2]);
-            Integer foo = parseInt(arr[2]) + parseInt(arr[5]);
+            Integer foo = parseInt(arr[2]) * parseInt(arr[5]);
 //            System.out.println("foo = " + foo);
             return foo.toString();
         }
