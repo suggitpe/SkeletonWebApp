@@ -36,7 +36,7 @@ public class QueryProcessor {
         }
 
         if (query.contains("What is ") && query.contains(" plus ")) {
-            String[] arr = query.split(" ");
+            String[] arr = query.substring(0, query.length()-1).split(" ");
             System.out.println(arr[2]);
             Integer foo = parseInt(arr[2]) + parseInt(arr[4]);
             System.out.println("foo = " + foo);
@@ -44,8 +44,8 @@ public class QueryProcessor {
         }
 
         if (query.contains("Which of the following numbers is the largest")) {
-            System.out.println("" + query.split(":"));
             String numbers = query.split(":")[1];
+            System.out.println("--> " + numbers.split(" "));
 
         }
 
