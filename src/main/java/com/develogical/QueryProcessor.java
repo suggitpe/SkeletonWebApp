@@ -2,7 +2,6 @@ package com.develogical;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 import static java.lang.Integer.parseInt;
 
@@ -56,11 +55,11 @@ public class QueryProcessor {
             return foo.toString();
         }
 
-        if(query.toLowerCase().contains("which of the following numbers is the largest:")){
-            String[] numbers = query.substring(0, query.length()-1).split(":")[1].split(", ");
+        if (query.toLowerCase().contains("which of the following numbers is the largest:")) {
+            String[] numbers = query.substring(0, query.length() - 1).split(":")[1].split(", ");
             String max = "0";
-            for(String number: numbers){
-                if(parseInt(max) < parseInt(number.trim())){
+            for (String number : numbers) {
+                if (parseInt(max) < parseInt(number.trim())) {
                     max = number.trim();
                 }
             }
@@ -68,22 +67,22 @@ public class QueryProcessor {
             return max;
         }
 
-        if(query.toLowerCase().contains("which of the following numbers is both a square and a cube")){
-            String[] numbers = query.substring(0, query.length()-1).split(":")[1].split(", ");
-            for(String number: numbers){
+        if (query.toLowerCase().contains("which of the following numbers is both a square and a cube")) {
+            String[] numbers = query.substring(0, query.length() - 1).split(":")[1].split(", ");
+            for (String number : numbers) {
                 int check = parseInt(number.trim());
-                if(isSquareAndCube(check))
+                if (isSquareAndCube(check))
                     return number.trim();
             }
             return "0";
         }
 
         //Which of the following numbers are primes: 74, 59, 70, 61, 94?
-        if(query.toLowerCase().contains("which of the following numbers are primes")){
-            String[] numbers = query.substring(0, query.length()-1).split(":")[1].split(", ");
-            for(String number: numbers){
+        if (query.toLowerCase().contains("which of the following numbers are primes")) {
+            String[] numbers = query.substring(0, query.length() - 1).split(":")[1].split(", ");
+            for (String number : numbers) {
                 int check = parseInt(number.trim());
-                if(isPrime(check))
+                if (isPrime(check))
                     return number.trim();
             }
             return "0";
@@ -92,27 +91,32 @@ public class QueryProcessor {
         return "";
     }
 
-    boolean isPrime(int check){
-        return check > 1
-                && IntStream.rangeClosed(2, (int) Math.sqrt(check))
-                .noneMatch(n -> (check % n == 0));
+    boolean isPrime(int check) {
+        if (check <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= check / 2; i++) {
+            if ((check % i) == 0)
+                return false;
+        }
+        return true;
     }
 
-    boolean isSquareAndCube(int check){
+    boolean isSquareAndCube(int check) {
         return isSquare(check) && isCube(check);
     }
 
-    boolean isSquare(int check){
+    boolean isSquare(int check) {
         int x = (int) Math.sqrt(check);
-        if(Math.pow(x,2) == check){
+        if (Math.pow(x, 2) == check) {
             return true;
         }
         return false;
     }
 
-    boolean isCube(int check){
-        int n = (int) Math.round(Math.pow(check, 1.0/3.0));
-        return Math.pow(n,3) == check;
+    boolean isCube(int check) {
+        int n = (int) Math.round(Math.pow(check, 1.0 / 3.0));
+        return Math.pow(n, 3) == check;
     }
 
 
