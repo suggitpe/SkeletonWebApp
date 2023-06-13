@@ -3,18 +3,24 @@ package com.develogical;
 import java.util.HashMap;
 import java.util.Map;
 
+import static java.lang.Integer.parseInt;
+
 public class QueryProcessor {
 
-    private Map<String, String> roots;
+    private final Map<String, String> roots = new HashMap<>();
+    private final Map<String, String> squares = new HashMap<>();
 
     public QueryProcessor() {
-        roots = new HashMap();
         roots.put("4", "2");
         roots.put("9", "3");
         roots.put("16", "4");
         roots.put("25", "5");
         roots.put("36", "6");
+
+
     }
+
+
 
 
     public String process(String query) {
@@ -30,6 +36,14 @@ public class QueryProcessor {
         if (query.toLowerCase().contains("your name")) {
             return "Mellow Yellow";
         }
+
+        if (query.contains("what is ") && query.contains(" plus ")) {
+            String[] arr = query.split(" ");
+            Integer foo = parseInt(arr[3]) + parseInt(arr[5]);
+            System.out.println(foo);
+            return foo.toString();
+        }
+
 
         return "";
     }
