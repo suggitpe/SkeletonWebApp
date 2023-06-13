@@ -39,14 +39,23 @@ public class QueryProcessor {
             String[] arr = query.substring(0, query.length() - 1).split(" ");
             System.out.println(arr[2]);
             Integer foo = parseInt(arr[2]) + parseInt(arr[4]);
-            System.out.println("foo = " + foo);
+//            System.out.println("foo = " + foo);
+            return foo.toString();
+        }
+
+        // What is 6 multiplied by 35?
+        if (query.contains("What is ") && query.contains(" multiplied by ")) {
+            String[] arr = query.substring(0, query.length() - 1).split(" ");
+//            System.out.println(arr[2]);
+            Integer foo = parseInt(arr[2]) + parseInt(arr[5]);
+//            System.out.println("foo = " + foo);
             return foo.toString();
         }
 
         if(query.toLowerCase().contains("which of the following numbers is the largest:")){
-            System.out.println("#######");
+//            System.out.println("#######");
             String[] numbers = query.substring(0, query.length()-1).split(":")[1].split(", ");
-            System.out.println("----> " + numbers);
+//            System.out.println("----> " + numbers);
             String max = "0";
             for(String number: numbers){
                 if(parseInt(max) < parseInt(number.trim())){
@@ -55,6 +64,10 @@ public class QueryProcessor {
             }
             System.out.println(numbers.length);
             return max;
+        }
+
+        if(query.toLowerCase().contains("which of the following numbers is both a square and a cube:")){
+            System.out.println()
         }
 
 
