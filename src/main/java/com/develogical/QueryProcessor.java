@@ -2,6 +2,7 @@ package com.develogical;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 import static java.lang.Integer.parseInt;
 
@@ -77,7 +78,24 @@ public class QueryProcessor {
             return "0";
         }
 
+        //Which of the following numbers are primes: 74, 59, 70, 61, 94?
+        if(query.toLowerCase().contains("which of the following numbers are primes")){
+            String[] numbers = query.substring(0, query.length()-1).split(":")[1].split(", ");
+            for(String number: numbers){
+                int check = parseInt(number.trim());
+                if(isPrime(check))
+                    return number.trim();
+            }
+            return "0";
+        }
+
         return "";
+    }
+
+    boolean isPrime(int check){
+        return check > 1
+                && IntStream.rangeClosed(2, (int) Math.sqrt(check))
+                .noneMatch(n -> (check % n == 0));
     }
 
     boolean isSquareAndCube(int check){
